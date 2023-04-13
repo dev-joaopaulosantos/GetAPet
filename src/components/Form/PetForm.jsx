@@ -24,7 +24,7 @@ const PetForm = ({ handleSubmit, petData, btnText }) => {
     const submit = (e) => {
         e.preventDefault()
         console.log(pet)
-        // handleSubmit(pet)
+        handleSubmit(pet)
 
     }
 
@@ -35,14 +35,14 @@ const PetForm = ({ handleSubmit, petData, btnText }) => {
                     ? preview.map((image, index) => (
                         <img src={URL.createObjectURL(image)} alt={pet.name} key={`${pet.name} + ${index}`} />
                     ))
-                    : pet.images && pet.images.map((image, index) =>(
+                    : pet.images && pet.images.map((image, index) => (
                         <img src={`${import.meta.env.VITE_BASE_URL}images/pets/${image}`} alt={pet.name} key={`${pet.name} + ${index}`} />
                     ))}
             </div>
             <Input text='Imagens do Pet' type='file' name='images' multiple={true} handleOnChange={onFileChange} />
             <Input text='Nome do Pet' type='text' name='name' placeholder='Digite o nome do pet' handleOnChange={handleChange} value={pet.name || ''} />
             <Input text='Idade do Pet' type='text' name='age' placeholder='Digite a idade do pet' handleOnChange={handleChange} value={pet.age || ''} />
-            <Input text='Peso do Pet' type='number' name='weight' placeholder='Digite o peso do pet' handleOnChange={handleChange} value={pet.weight || ''} />
+            <Input text='Peso do Pet' type='number' name='weigth' placeholder='Digite o peso do pet' handleOnChange={handleChange} value={pet.weigth || ''} />
             <SelectForm text='Color' name='color' options={colors} handleOnChange={handleColor} value={pet.color || ''} />
             <input type="submit" value={btnText} />
         </form>
