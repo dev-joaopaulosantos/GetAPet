@@ -27,3 +27,15 @@
     color: #16479d;
     font-weight: bold;
 }
+
+/* Form de pets */
+.preview-images-pet{
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+}
+.preview-images-pet img{
+    width: 100px;
+    height: 100px;
+    margin-left: 1rem;
+}

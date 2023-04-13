@@ -1,20 +1,28 @@
 import './Login.css'
 import Input from '../../components/Form/Input'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 
 // context
 import { Context } from '../../context/UserContext'
 import { Link } from 'react-router-dom'
 
 const Login = () => {
-  const handleChange = (e) => {
+  const [user, setUser] = useState({})
+  const { login } = useContext(Context)
 
+  const handleChange = (e) => {
+    setUser({ ...user, [e.target.name]: e.target.value })
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    login(user)
   }
 
   return (
     <section className='form-container'>
       <h1>Login</h1>
-      <form>
+      <form onSubmit={handleSubmit} >
         <Input text='E-mail' type='email' name='email' placeholder='Digite o seu email' handleOnChange={handleChange} />
         <Input text='Senha' type='password' name='password' placeholder='Digite a sua senha' handleOnChange={handleChange} />
 
