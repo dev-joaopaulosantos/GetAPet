@@ -24,7 +24,7 @@ const Home = () => {
          <div className='pet-container'>
             {pets.length > 0 && (
                pets.map((pet) => (
-                  <div className='pet-card'>
+                  <div key={pet._id} className='pet-card'>
                      <div className='pet-card-image' style={{backgroundImage: `url(${import.meta.env.VITE_BASE_URL}/images/pets/${pet.images[0]})`}}></div>
                      <h3>{pet.name}</h3>
                      <p><span className='bold'>Peso:</span>{pet.weigth}kg</p>
